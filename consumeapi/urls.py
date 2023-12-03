@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import url
+# from django.conf.urls import url
 from rest_framework_swagger.views import get_swagger_view
 
 
@@ -27,27 +27,28 @@ from rest_framework_swagger.views import get_swagger_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("staffs.urls")),
+     path("__reload__/", include("django_browser_reload.urls")), # tailwind 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)
 
 
-from rest_framework import routers
-from tutorial.quickstart import views
+# from rest_framework import routers
+# # from tutorial.quickstart import views
 
-router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+# router = routers.DefaultRouter()
+# # router.register(r'users', views.UserViewSet)
+# # router.register(r'groups', views.GroupViewSet)
 
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
-urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]
+# # Wire up our API using automatic URL routing.
+# # Additionally, we include login URLs for the browsable API.
+# urlpatterns = [
+#     path('', include(router.urls)),
+#     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+# ]
 
-#  swagger
+# #  swagger
 
-schema_view = get_swagger_view(title='Pastebin API')
+# schema_view = get_swagger_view(title='Pastebin API')
 
-urlpatterns = [
-    url(r'^$', schema_view)
-]
+# urlpatterns = [
+#     url(r'^$', schema_view)
+# ]
