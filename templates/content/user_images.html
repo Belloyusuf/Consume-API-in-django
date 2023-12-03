@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+<!-- {% load static %} -->
+{% block content %}
+
+<ul>
+    {% for users in user_images %}
+      <li>{{ users.albumID }}</li>
+      <li>{{ users.id }}</li>
+      <li>{{ users.title }}</li>
+      <li>{{ users.url }}</li>
+      <li>
+        <img src="{{ users.thumbnailUrl.url }}" alt="" srcset="">
+      </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
