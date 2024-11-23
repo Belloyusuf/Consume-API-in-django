@@ -41,4 +41,4 @@ def users(request):
     """ List users api """
     response = requests.get('http://127.0.0.1:8000/users/')
     data = response.json()
-    return render(request, "content/users.html", {"data":data})
+    return render(request, "content/users.html", {"data":data })

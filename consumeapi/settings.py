@@ -40,10 +40,7 @@ INSTALLED_APPS = [
     'staffs',
     'rest_framework_swagger',
     'rest_framework',
-    'tailwind',
-    'theme',
-    'django_browser_reload',
-
+  
 ]
 
 MIDDLEWARE = [
@@ -51,7 +48,6 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",  # tailwind code
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -84,9 +80,11 @@ WSGI_APPLICATION = 'consumeapi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3',)
     }
 }
+
+
 
 
 # Password validation
@@ -123,16 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# tailwind
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-
-TAILWIND_APP_NAME = 'theme'
